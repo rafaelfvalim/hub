@@ -56,8 +56,7 @@ public class SecurityConfigurations extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().
 				 antMatchers(HttpMethod.GET, "/api/v1/iot").access(whiteListIps)
 				.antMatchers(HttpMethod.POST, "/api/v1/auth").permitAll()
-				.antMatchers(HttpMethod.GET, "/actuator/**")
-				.permitAll()
+				.antMatchers(HttpMethod.GET, "/actuator/**").permitAll()
 //		.antMatchers(HttpMethod.DELETE, "/topicos/*").hasRole("MODERADOR")
 				.anyRequest().authenticated().and().csrf().disable().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
